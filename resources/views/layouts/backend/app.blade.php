@@ -37,7 +37,7 @@ echo json_encode([
 
         <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">-->
     </head>
-    @if (Auth::check())
+    @if (Auth::check() && Auth::user()->role_id == 3)
     <body>
         <div class="header navbar navbar-inverse navbar-fixed-top">
             @include('includes.backend.nav')

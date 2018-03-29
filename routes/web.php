@@ -14,10 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/clear-cache', function() {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+});
+Route::get('/migrate', function() {
+    Artisan::call('migrate');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/privacy-policy', 'HomeController@showPrivacyPolicy')->name('showPrivacyPolicy');
+Route::get('/terms-and-conditions', 'HomeController@showTermsAndConditions')->name('showTermsAndConditions');
+
 /*
  * Frontend Routes
  * Namespaces indicate folder structure
@@ -47,5 +56,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::group(['namespace' => 'Auth'], function () {
         Route::post('/login', 'AuthController@loginAdmin')->name('login');
         Route::get('/login', 'AuthController@login')->name('loginAdmin');
+        Route::group(['middlware' => 'auth'], function () {
+            Route::get('/', 'AuthController@home')->name('loginAdmin');
+        });
     });
 });

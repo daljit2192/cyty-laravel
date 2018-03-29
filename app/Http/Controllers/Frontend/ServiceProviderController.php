@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Repositories\Frontend\ServiceProvider\ServiceProviderRepository;
+use View;
 
 class ServiceProviderController extends Controller
 {
@@ -49,7 +50,7 @@ class ServiceProviderController extends Controller
             
             $userRegisterStatus = ServiceProviderRepository::addServiceProvider($request->all());
             if($userRegisterStatus){
-                return view("frontend.serviceproviderlogin");
+                return redirect('/serviceprovider/login');
             }
         }
     }
@@ -61,12 +62,13 @@ class ServiceProviderController extends Controller
         ]);
         if ($validator->fails()) {
             $errors = $validator->getMessageBag()->toArray();
-            echo "fail";die;
+            return view('frontend.serviceproviderlogin',['error', $errors]);
         } else {
-            
-            $userLoginStatus = ServiceProviderRepository::login($request->all());
-            if($userLoginStatus){
+            $userLogin = ServiceProviderRepository::login($request->all());
+            if($userLogin["status"]!=0){
                 return redirect('/');
+            } else {
+                return view('frontend.serviceproviderlogin',['error'=>$userLogin["message"]]);
             }
         }
     }

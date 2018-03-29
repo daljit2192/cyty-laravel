@@ -25,72 +25,40 @@
                                 <ul class="menu">
                                     <li class="active">
                                         <a href="#" title="">Home</a>
-                                        <ul class="sub-menu">
-                                            <li class="active"><a href="#" title="">Home 01</a></li>
-                                            <li><a href="index-02.html" title="">Home 02</a></li>
-                                            <li><a href="index-03.html" title="">Home 03</a></li>
-                                            <li><a href="index-04.html" title="">Home 04</a></li>
-                                            <li><a href="index-05.html" title="">Home 05</a></li>
-                                        </ul><!-- /.sub-menu -->
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title="">How it works</a>
+                                    </li>
+                                    <li class="">
+                                        <a href="#" title="">FAQ'S</a>
                                     </li>
                                     <li>
-                                        <a href="about.html" title="">About Us</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about.html" title="">About 01</a></li>
-                                            <li><a href="about-v2.html" title="">About 02</a></li>
-                                            <li><a href="about-v3.html" title="">About 03</a></li>
-                                        </ul><!-- /.sub-menu -->
-                                    </li>
-                                    <li>
-                                        <a href="services.html" title="">Services</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="services.html" title="">Services 01</a></li>
-                                            <li><a href="services-v2.html" title="">Services 02</a></li>
-                                        </ul><!-- /.sub-menu -->
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">CASES</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="case-02.html" title="">Cases 3 columns (1)</a></li>
-                                            <li><a href="case-03.html" title="">Cases 3 columns (2)</a></li>
-                                            <li><a href="case.html" title="">Cases 4 columns</a></li>
-                                            <li><a href="case-single.html" title="">Cases single</a></li>
-                                        </ul><!-- /.sub-menu -->
-                                    </li>
-                                    <li>
-                                        <a href="blog.html" title="">News</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html" title="">Blog</a></li>
-                                            <li><a href="blog-v2.html" title="">Blog 02</a></li>
-                                            <li><a href="blog-v3.html" title="">Blog 03</a></li>
-                                            <li><a href="blog-single.html" title="">Blog Grid</a></li>
-                                        </ul><!-- /.sub-menu -->
-                                    </li>
-                                    <li>
-                                        <a href="#" title="">PAGES</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="404.html" title="">Error Page</a></li>
-                                            <li><a href="pricing.html" title="">Pricing</a></li>
-                                        </ul><!-- /.sub-menu -->
-                                    </li>
-                                    <li>
-                                        <a href="contact-v1.html" title="">Contact US</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="contact-v1.html" title="">Contact 01</a></li>
-                                        </ul><!-- /.sub-menu -->
+                                        <a href="#" title="">Contact Us</a>
                                     </li>
                                     @if(Auth::check())
                                     <li>
-                                        <a href="{{url('/serviceprovider/logout')}}" title="">Logout</a>
+                                        <a title="">Shop</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="" title="">Cart</a></li>
+                                            <li><a href="" title="">Checkout</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a title="">My Account</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{url('/serviceprovider/logout')}}" title="">Logout</a></li>
+                                            <li><a href="" title="">Profile</a></li>
+                                        </ul>
                                     </li>
                                     @else
                                     <li>
-                                        <a href="{{url('/serviceprovider/login')}}" title="">Login</a>
+                                        <a title="">My Account</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{url('/serviceprovider/login')}}" title="">Login</a></li>
+                                            <li><a href="{{url('/serviceprovider/register')}}" title="">Register</a></li>
+                                        </ul>
                                     </li>
-                                    <li>
-                                        <a href="{{url('/serviceprovider/register')}}" title="">Register</a>
-                                    </li>
-                                    @endif;
+                                    @endif
                                 </ul><!-- /.menu -->
                             </nav><!-- /#mainnav -->
                         </div><!-- /.nav-wrap -->

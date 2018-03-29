@@ -33,6 +33,7 @@
         <link href="{{ asset('css/frontend/responsive.css') }}" rel="stylesheet">
         <link href="{{ asset('css/frontend/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('css/frontend/et-line.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/frontend/viewer.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="loading-overlay">
@@ -40,32 +41,6 @@
         </div>
 
         <div class="boxed">
-            <div class="top style2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="title-page">
-                                Welcome to Finance Consultant Theme
-                            </div>
-                            <ul class="flat-social">
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-google-plus"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" title=""><i class="fa fa-rss"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div><!-- /.clearfix -->
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.top -->
             <div class="header-top">
                 <div class="container">
                     <div class="row">
@@ -75,39 +50,6 @@
                                     <img src="images/logo.png" alt="logo Finance Business" style="margin: 0 0 35px 0;" />
                                 </a>
                             </div><!-- /#logo -->
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="iconbox style2 v2">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-paper-plane-o"></i>
-                                </div>
-                                <div class="iconbox-content">
-                                    <h4>+61 3 8376 6284</h4>
-                                    <p>themesflat@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="iconbox style2 v2">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-map-marker"></i>
-                                </div>
-                                <div class="iconbox-content">
-                                    <h4>4946 Marmora Road,</h4>
-                                    <p>Central New, UK</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="iconbox style2 v2">
-                                <div class="iconbox-icon">
-                                    <i class="fa fa-clock-o"></i>
-                                </div>
-                                <div class="iconbox-content">
-                                    <h4>Mon - Sat: 8 am - 5 pm</h4>
-                                    <p>Sunday: CLOSED</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,13 +99,13 @@
                                     <li><a href="#" title="">Home</a></li>
                                     <li><a href="#" title="">About us</a></li>
                                     <li><a href="#" title="">Services</a></li>
-                                    <li><a href="#" title="">Cases</a></li>
+                                    <li><a href="{{url('/terms-and-conditions')}}" title="">T & C</a></li>
                                 </ul><!-- /.one-half -->
                                 <ul class="one-half">
                                     <li><a href="#" title="">Contact us</a></li>
                                     <li><a href="#" title="">Clients</a></li>
                                     <li><a href="#" title="">Testimonial</a></li>
-                                    <li><a href="#" title="">News</a></li>
+                                    <li><a href="{{url('/privacy-policy')}}" title="">Privacy Policy</a></li>
                                 </ul><!-- /.one-half -->
                                 <div class="clearfix"></div>
                             </div><!-- /.widget-services -->
@@ -204,7 +146,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>© Copyright <a href="#" title="">Themesflat 2018</a>. All Rights Reserved.</p>
+                                <p>ï¿½ Copyright <a href="#" title="">Themesflat 2018</a>. All Rights Reserved.</p>
                             </div>
                         </div>
                     </div>

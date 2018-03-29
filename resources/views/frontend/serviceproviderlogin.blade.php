@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(isset($error))
+            <h5>{{$error}}</h5>
+            @endif
             <div class="card">
                 <div class="card-header">Service Provider Login</div>
 

@@ -75,7 +75,7 @@
                    data-y="['middle','middle','middle','middle']" data-voffset="['130','140','140','110']"
                    data-fontsize="['14','14','14','14']" 
                    data-width="['auto']"
-                   data-height="['auto']">READ MORE
+                   data-height="['auto']">REGISTER
                 </a><!-- END LAYER LINK -->
 
                 <a href="#" target="_self" class="tp-caption flat-button-slider bg-white" 
@@ -86,7 +86,7 @@
                    data-y="['middle','middle','middle','middle']" data-voffset="['130','140','140','110']"  
                    data-fontsize="['14',14','14','14']"
                    data-width="['auto']"
-                   data-height="['auto']">GET IN TOUCH
+                   data-height="['auto']">DOWNLOAD ANDROID
                 </a><!-- END LAYER LINK -->
             </li>
 
@@ -173,6 +173,13 @@
         </ul>
     </div>
 </div><!-- END REVOLUTION SLIDER -->
+
+@include('dashboard.why_cyty_serv')
+
+@include('dashboard.how_it_works')
+
+@include('dashboard.about_us')
+
 <section class="flat-row flat-contact">
     <div class="container">
         <div class="row">
@@ -196,7 +203,7 @@
                         <div class="input-text">
                             <textarea id="message-contact" name="your-message" placeholder="Message *" required=""></textarea>
                         </div>
-                        <div class="btn-submit">
+                        <div class="btn-submit" style="margin-top:10px;">
                             <button type="submit">SEND MESSAGE</button>
                         </div>
                     </form> <!-- /.flat-form-info -->
