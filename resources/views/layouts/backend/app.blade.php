@@ -44,7 +44,7 @@ echo json_encode([
         </div>
         <div class="page-container row-fluid">
             @include('includes.backend.sidebar')
-            <div class="page-content">
+            <div class="page-content" style="margin-top:25px;">
                 <!-- BEGIN PAGE CONTAINER-->
                 <div class="container-fluid">
                     @yield('content')

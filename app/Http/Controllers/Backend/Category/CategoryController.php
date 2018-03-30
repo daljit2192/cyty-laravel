@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Frontend\Category\CategoryRepository;
+use App\Repositories\Backend\Category\CategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

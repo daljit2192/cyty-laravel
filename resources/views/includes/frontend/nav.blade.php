@@ -37,7 +37,7 @@
                                     </li>
                                     @if(Auth::check())
                                     <li>
-                                        <a title="">Shop</a>
+                                        <a href="{{url('/shop')}}">Shop</a>
                                         <ul class="sub-menu">
                                             <li><a href="" title="">Cart</a></li>
                                             <li><a href="" title="">Checkout</a></li>
