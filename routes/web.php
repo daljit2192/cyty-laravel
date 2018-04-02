@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::get('serviceprovider/login', 'ServiceProviderController@loginServiceProvider')->name('loginServiceProvider');
     Route::get('serviceprovider/logout', 'ServiceProviderController@logout')->name('logoutServiceProvider');
     Route::post('serviceprovider/login', 'ServiceProviderController@login')->name('loginServiceProvider');
-    Route::get('serviceprovider/', 'ServiceProviderController@registerServiceProvider')->name('registerServiceProvider');
+    Route::get('serviceprovider/register', 'ServiceProviderController@registerServiceProvider')->name('registerServiceProvider');
     Route::post('serviceprovider/register', 'ServiceProviderController@addServiceProvider')->name('registerServiceProvider');
 });
 
@@ -68,6 +68,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
         Route::get('{id}', 'ProductController@get_product')->name('get_product');
         Route::get('/delete/{id}', 'ProductController@delete_product')->name('delete_product');
     });
+    Route::group(['namespace' => 'Client', 'as' => 'client.', 'prefix' => 'client/',], function () {
+        Route::get('new', 'ClientController@add_client')->name('add_client_view');
+        Route::post('new', 'ClientController@save_client')->name('save_client');
+        Route::patch('update', 'ClientController@update_client')->name('update_client');
+        Route::get('{id}', 'ClientController@get_client')->name('get_client');
+        Route::get('/delete/{id}', 'ClientController@delete_client')->name('delete_client');
+    });
 
     Route::group(['namespace' => 'Product', 'prefix' => 'products/', 'as' => 'products.'], function () {
         Route::get('', 'ProductController@get_all_products')->name('get_all_products');
@@ -75,6 +82,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     
     Route::group(['namespace' => 'Category', 'prefix' => 'categories/', 'as' => 'categories.'], function () {
         Route::get('', 'CategoryController@get_all_categories')->name('get_all_categories');
+    });
+    
+    Route::group(['namespace' => 'Client', 'prefix' => 'clients/', 'as' => 'clients.'], function () {
+        Route::get('', 'ClientController@get_all_clients')->name('get_all_clients');
     });
 
     Route::group(['namespace' => 'Auth'], function () {

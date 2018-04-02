@@ -65,7 +65,7 @@ class CategoryController extends Controller {
         } else {
             $categoryUpdate = CategoryRepository::update_catgeory($request->all());
             if ($categoryUpdate) {
-                return redirect('categories');
+                return redirect('/admin/categories');
             } else {
                 return view("backend.category.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }

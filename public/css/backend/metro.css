@@ -21,35 +21,8 @@ select:focus {
    outline: none !important;
 }
 
-.btn {
-	background-color: #e5e5e5;
-	background-image: none;
-	filter: none;
-	border: 0;
-	box-shadow: none;
-	padding: 7px 14px; 
-	text-shadow: none;
-	font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 14px;  	
-  color: #333333;
-	cursor: pointer;
-	outline: none;
-  -webkit-border-radius: 0 !important;
-     -moz-border-radius: 0 !important;
-          border-radius: 0 !important;
-}
-.btn:hover, 
-.btn:focus, 
-.btn:active,
-.btn.active,
-.btn[disabled],
-.btn.disabled {  
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-  color: #333333;
-  box-shadow: none;
-  background-color: #d8d8d8;
-}
 
+/*
 .btn.red-stripe
 {
 	border-left: 3px solid #d84a38;
@@ -70,7 +43,7 @@ select:focus {
 	border-left: 3px solid #35aa47;
 }
 
-/*  Red */
+  Red 
 .btn.red {
   color: white;  
   text-shadow: none;	
@@ -86,7 +59,7 @@ select:focus {
   color: #fff !important;
 }
 
-/*  Blue */
+  Blue 
 .btn.transparent   
 {
   color: black;  
@@ -110,7 +83,7 @@ select:focus {
   color: #fff !important;
 }
 
-/*  Green */
+  Green 
 .btn.green {
   color: white;
   text-shadow: none;	 
@@ -126,7 +99,7 @@ select:focus {
   color: #fff !important;
 }
 
-/*  Purple */
+  Purple 
 .btn.purple {
   color: white; 
   text-shadow: none;	
@@ -170,7 +143,7 @@ select:focus {
 .btn.black[disabled] { 
   background-color: #222222 !important;
   color: #fff !important;
-}
+}*/
 
 .mini 
 {

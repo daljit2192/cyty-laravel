@@ -16,8 +16,7 @@ class ServiceProviderController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(){
 //        $this->middleware('auth');
     }
 
@@ -26,17 +25,15 @@ class ServiceProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function loginServiceProvider()
-    {
+    public function loginServiceProvider(){
         return view("frontend.serviceproviderlogin");
     }
     
-    public function registerServiceProvider()
-    {
+    public function registerServiceProvider(){
         return view("frontend.serviceproviderregister");
     }
-    public function addServiceProvider(Request $request)
-    {
+    
+    public function addServiceProvider(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:191',
             'licence_img' => 'required|string|max:191',
@@ -54,8 +51,8 @@ class ServiceProviderController extends Controller
             }
         }
     }
-    public function login(Request $request)
-    {
+    
+    public function login(Request $request){
         $validator = Validator::make($request->all(), [
             'email' => ['required', 'string', 'email', 'max:191'],
             'password' => 'required|string|min:6|'
@@ -63,7 +60,7 @@ class ServiceProviderController extends Controller
         if ($validator->fails()) {
             $errors = $validator->getMessageBag()->toArray();
             return view('frontend.serviceproviderlogin',['error', $errors]);
-        } else {
+        } else { 
             $userLogin = ServiceProviderRepository::login($request->all());
             if($userLogin["status"]!=0){
                 return redirect('/');
@@ -72,9 +69,10 @@ class ServiceProviderController extends Controller
             }
         }
     }
-    public function logout()
-    {
+    
+    public function logout(){
         auth()->logout();
         return redirect('/');
     }
+    
 }

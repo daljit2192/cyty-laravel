@@ -39,7 +39,7 @@
                      data-paddingbottom="[0,0,0,0"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 16; white-space: nowrap;">Help businesses grow and innovate
+                     style="z-index: 16; white-space: nowrap;">500 and counting Services
                 </div>
 
                 <!-- LAYER NR. 13 -->
@@ -64,10 +64,10 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 17; white-space: nowrap;">Ipsum is simply text of the stry simply dummy text of the printing and typesetting industry. Lorem Ipsum. 
+                     style="z-index: 17; white-space: nowrap;">CYTY SERV application allows users to search, review and book professionals.
                 </div>
 
-                <a href="#" target="_self" class="tp-caption flat-button-slider bg-blue" 
+                <a href="{{url('/serviceprovider/register')}}" target="_self" class="tp-caption flat-button-slider bg-blue" 
 
                    data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
 
@@ -86,7 +86,7 @@
                    data-y="['middle','middle','middle','middle']" data-voffset="['130','140','140','110']"  
                    data-fontsize="['14',14','14','14']"
                    data-width="['auto']"
-                   data-height="['auto']">DOWNLOAD ANDROID
+                   data-height="['auto']">DOWNLOAD ANDROID APP
                 </a><!-- END LAYER LINK -->
             </li>
 
@@ -119,7 +119,7 @@
                      data-paddingbottom="[0,0,0,0"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 16; white-space: nowrap;">We help businesses grow and innovate
+                     style="z-index: 16; white-space: nowrap;">500 and counting Services
                 </div>
 
                 <!-- LAYER NR. 13 -->
@@ -144,10 +144,10 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 17; white-space: nowrap;">Ipsum is simply text of the stry simply dummy text of the printing and typesetting industry. Lorem Ipsum. 
+                     style="z-index: 17; white-space: nowrap;">CYTY SERV application allows users to search, review and book professionals.
                 </div>
 
-                <a href="#" target="_self" class="tp-caption flat-button-slider bg-blue" 
+                <a href="{{url('/serviceprovider/register')}}" target="_self" class="tp-caption flat-button-slider bg-blue" 
 
                    data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
 
@@ -155,7 +155,7 @@
                    data-y="['middle','middle','middle','middle']" data-voffset="['130','140','140','110']"
                    data-fontsize="['14','14','14','14']" 
                    data-width="['auto']"
-                   data-height="['auto']">READ MORE
+                   data-height="['auto']">REGISTER
                 </a><!-- END LAYER LINK -->
 
                 <a href="#" target="_self" class="tp-caption flat-button-slider bg-white" 
@@ -166,7 +166,7 @@
                    data-y="['middle','middle','middle','middle']" data-voffset="['130','140','140','110']"  
                    data-fontsize="['14',14','14','14']"
                    data-width="['auto']"
-                   data-height="['auto']">GET IN TOUCH
+                   data-height="['auto']">DOWNLOAD ANDROID APP
                 </a><!-- END LAYER LINK -->
             </li>
 
@@ -175,6 +175,11 @@
 </div><!-- END REVOLUTION SLIDER -->
 
 @include('dashboard.why_cyty_serv')
+
+<section class="flat-row flat-contact" style="text-align: center;">
+    <iframe width="420" height="345" src="https://www.youtube.com/embed/XD7fvWKLuXQ">
+    </iframe>
+</section>
 
 @include('dashboard.how_it_works')
 
@@ -188,7 +193,7 @@
                     <h2>Get in touch</h2>
                 </div>
                 <div class="flat-contact-form">
-                    <form id="contactform" method="post" action="./contact/contact-process.php" class="form-info" novalidate="novalidate">
+                    <form id="contactform" method="post" class="form-info" novalidate="novalidate">
                         <div class="field-row">
                             <div class="one-three">
                                 <p class="input-info"><input type="text" name="your-name" id="name" value="" placeholder="Your name *" required=""></p>
@@ -204,7 +209,7 @@
                             <textarea id="message-contact" name="your-message" placeholder="Message *" required=""></textarea>
                         </div>
                         <div class="btn-submit" style="margin-top:10px;">
-                            <button type="submit">SEND MESSAGE</button>
+                            <button type="button">SEND MESSAGE</button>
                         </div>
                     </form> <!-- /.flat-form-info -->
                 </div>

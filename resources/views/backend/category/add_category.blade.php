@@ -25,7 +25,7 @@
                 </div>
                 <div class="controls">
                     <label class="control-label">Description</label>
-                    <textarea class="span6 m-wrap" rows="3" name= "description" placeholder="Category Description"></textarea>
+                    <textarea class="span6 m-wrap" rows="3" style="width: 570px;" name= "description" placeholder="Category Description"></textarea>
                 </div>
                 <div class="controls">
                     <label class="control-label">Category Image</label>
@@ -46,8 +46,8 @@
         </div>
     </div>
     <div class="form-actions">
-        <button type="submit" class="btn blue _save_category"><i class="icon-ok"></i>Save</button>
-        <button type="button" class="btn">Cancel</button>
+        <button type="submit" class="btn btn-success _save_category"><i class="icon-ok"></i>Save</button>
+        <button type="button" class="btn btn-danger ">Cancel</button>
     </div>
     {{ Form::close() }}
     <!-- END FORM--> 
