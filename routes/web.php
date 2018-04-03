@@ -64,7 +64,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::group(['namespace' => 'Product', 'as' => 'product.', 'prefix' => 'product/',], function () {
         Route::get('new', 'ProductController@add_product')->name('add_product_view');
         Route::post('new', 'ProductController@save_product')->name('save_product');
-        Route::patch('update', 'ProductController@update_product')->name('update_product');
+//        Route::patch('update', 'ProductController@update_product')->name('update_product');
         Route::get('{id}', 'ProductController@get_product')->name('get_product');
         Route::get('/delete/{id}', 'ProductController@delete_product')->name('delete_product');
     });
@@ -102,6 +102,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::group(['namespace' => 'Auth'], function () {
         Route::post('/login', 'AuthController@loginAdmin')->name('login');
         Route::get('/login', 'AuthController@login')->name('loginAdmin');
+        Route::get('/logout', 'AuthController@logout')->name('logoutAdmin');
         Route::group(['middlware' => 'auth'], function () {
             Route::get('/', 'AuthController@home')->name('loginAdmin');
         });

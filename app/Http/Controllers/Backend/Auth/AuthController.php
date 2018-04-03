@@ -15,8 +15,8 @@ class AuthController extends Controller {
 
     public function login() {
         if (Auth::check()) {
-            if (Auth::check()->role_id == 3) {
-                return view('backend.home');
+            if (Auth::user()->role_id == 3) {
+                return redirect('/admin');
             } else {
                 return redirect('/admin/login');
             }
@@ -41,5 +41,10 @@ class AuthController extends Controller {
         if (Auth::attempt(['email' => $request["email"], 'password' => $request["password"]])) {
             return view('backend.home');
         }
+    }
+    
+    public function logout(){
+        auth()->logout();
+        return redirect('/');
     }
 }

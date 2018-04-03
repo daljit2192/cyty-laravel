@@ -6,24 +6,50 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Category\CategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 /**
  * Class CategoryController.
  */
 class CategoryController extends Controller {
 
+    public function __construct() {
+        
+    }
+
+    public function checkUser() {
+
+        if (!Auth::check() || Auth::user()->role_id != 3) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function add_category() {
-        return view('backend.category.add_category');
+        if ($this->checkUser()) {
+            return view('backend.category.add_category');
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_all_categories() {
-        $categories = CategoryRepository::get_all_categories();
-        return view("backend.category.show_all_categories", ['categories' => $categories]);
+        if ($this->checkUser()) {
+            $categories = CategoryRepository::get_all_categories();
+            return view("backend.category.show_all_categories", ['categories' => $categories]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_category($id) {
-        $category = CategoryRepository::get_category($id);
-        return view("backend.category.edit_category", ['category' => $category]);
+        if ($this->checkUser()) {
+            $category = CategoryRepository::get_category($id);
+            return view("backend.category.edit_category", ['category' => $category]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function save_category(Request $request) {
@@ -47,9 +73,9 @@ class CategoryController extends Controller {
     }
 
     public function delete_category($id) {
-        if($id!==""){
+        if ($id !== "") {
             $deleteCategory = CategoryRepository::delete_category($id);
-            if($deleteCategory){
+            if ($deleteCategory) {
                 return redirect('/admin/categories');
             }
         }

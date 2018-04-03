@@ -12,18 +12,38 @@ use Illuminate\Support\Facades\Validator;
  */
 class JobController extends Controller {
 
+    public function checkUser() {
+        if (!Auth::check() || Auth::user()->role_id != 3) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function add_job() {
-        return view('backend.job.add_job');
+        if ($this->checkUser()) {
+            return view('backend.job.add_job');
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_all_jobs() {
-        $jobs = JobRepository::get_all_jobs();
-        return view("backend.job.show_all_jobs", ['jobs' => $jobs]);
+        if ($this->checkUser()) {
+            $jobs = JobRepository::get_all_jobs();
+            return view("backend.job.show_all_jobs", ['jobs' => $jobs]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_job($id) {
-        $job = JobRepository::get_job($id);
-        return view("backend.job.edit_job", ['job' => $job]);
+        if ($this->checkUser()) {
+            $job = JobRepository::get_job($id);
+            return view("backend.job.edit_job", ['job' => $job]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function save_job(Request $request) {
@@ -47,7 +67,7 @@ class JobController extends Controller {
     }
 
     public function delete_job($id) {
-        if($id!==""){
+        if ($id !== "") {
             JobRepository::delete_job($id);
         }
     }

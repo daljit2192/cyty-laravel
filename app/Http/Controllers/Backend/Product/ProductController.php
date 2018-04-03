@@ -13,20 +13,41 @@ use Illuminate\Support\Facades\Validator;
  */
 class ProductController extends Controller {
 
+    public function checkUser() {
+
+        if (!Auth::check() || Auth::user()->role_id != 3) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function add_product() {
-        $categories = Category::all();
-        return view('backend.product.add_product',["categories"=>$categories->toArray()]);
+        if ($this->checkUser()) {
+            $categories = Category::all();
+            return view('backend.product.add_product', ["categories" => $categories->toArray()]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_all_products() {
-        $products = ProductRepository::get_all_products();
-        return view("backend.product.show_all_products", ['products' => $products]);
+        if ($this->checkUser()) {
+            $products = ProductRepository::get_all_products();
+            return view("backend.product.show_all_products", ['products' => $products]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_product($id) {
-        $categories = Category::all();
-        $product = ProductRepository::get_product($id);
-        return view("backend.product.edit_product", ['product' => $product, "categories"=>$categories->toArray()]);
+        if ($this->checkUser()) {
+            $categories = Category::all();
+            $product = ProductRepository::get_product($id);
+            return view("backend.product.edit_product", ['product' => $product, "categories" => $categories->toArray()]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function save_product(Request $request) {
@@ -45,14 +66,13 @@ class ProductController extends Controller {
                 return view("backend.product.show_all_products", ['class' => "success", 'message' => "Category saved successfully"]);
             } else {
                 $categories = Category::all();
-                return view("backend.product.add_products", ["categories"=>$categories->toArray(),'class' => "error", 'message' => "Error occured while saving categories, please try again."]);
+                return view("backend.product.add_products", ["categories" => $categories->toArray(), 'class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
         }
     }
 
-
     public function delete_product($id) {
-        if($id!==""){
+        if ($id !== "") {
             ProductRepository::delete_product($id);
         }
     }
@@ -76,4 +96,5 @@ class ProductController extends Controller {
             }
         }
     }
+
 }

@@ -13,21 +13,41 @@ use Illuminate\Support\Facades\Validator;
  */
 class ClientController extends Controller {
 
+    public function checkUser() {
+        if (!Auth::check() || Auth::user()->role_id != 3) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function add_client() {
-        $categories = Category::all();
-        return view('backend.client.add_client',["categories"=>$categories->toArray()]);
+        if ($this->checkUser()) {
+            $categories = Category::all();
+            return view('backend.client.add_client', ["categories" => $categories->toArray()]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
 
     public function get_all_clients() {
-        $clients = ClientRepository::get_all_clients();
-        return view("backend.client.show_all_clients", ['clients' => $clients]);
+        if ($this->checkUser()) {
+            $clients = ClientRepository::get_all_clients();
+            return view("backend.client.show_all_clients", ['clients' => $clients]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
-//
+
     public function get_client($id) {
-        $client = ClientRepository::get_client($id);
-        return view("backend.client.edit_client", ['client' => $client]);
+        if ($this->checkUser()) {
+            $client = ClientRepository::get_client($id);
+            return view("backend.client.edit_client", ['client' => $client]);
+        } else {
+            return redirect("/admin/login");
+        }
     }
-//
+
     public function save_client(Request $request) {
         /* Validator is used to validate all the details which are recived in the $request */
         $validator = Validator::make($request->all(), [
@@ -44,7 +64,7 @@ class ClientController extends Controller {
                 return view("backend.client.show_all_clients", ['class' => "success", 'message' => "Client saved successfully"]);
             } else {
                 $categories = Category::all();
-                return view("backend.client.add_clients", ["categories"=>$categories->toArray(),'class' => "error", 'message' => "Error occured while saving categories, please try again."]);
+                return view("backend.client.add_clients", ["categories" => $categories->toArray(), 'class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
         }
     }
@@ -75,4 +95,5 @@ class ClientController extends Controller {
             }
         }
     }
+
 }
