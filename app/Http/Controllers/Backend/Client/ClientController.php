@@ -23,10 +23,10 @@ class ClientController extends Controller {
         return view("backend.client.show_all_clients", ['clients' => $clients]);
     }
 //
-//    public function get_product($id) {
-//        $product = ProductRepository::get_product($id);
-//        return view("backend.product.edit_product", ['product' => $product]);
-//    }
+    public function get_client($id) {
+        $client = ClientRepository::get_client($id);
+        return view("backend.client.edit_client", ['client' => $client]);
+    }
 //
     public function save_client(Request $request) {
         /* Validator is used to validate all the details which are recived in the $request */
@@ -39,7 +39,7 @@ class ClientController extends Controller {
             $errors = $validator->getMessageBag()->toArray();
             return view("backend.client.add_client", ['errors' => $errors]);
         } else {
-            $clientSave = ProductRepository::save_product($request->all());
+            $clientSave = ClientRepository::save_client($request->all());
             if ($clientSave) {
                 return view("backend.client.show_all_clients", ['class' => "success", 'message' => "Client saved successfully"]);
             } else {
@@ -56,23 +56,23 @@ class ClientController extends Controller {
 //        }
 //    }
 //
-//    public function update_product(Request $request) {
-//        /* Validator is used to validate all the details which are recived in the $request */
-//        $validator = Validator::make($request->all(), [
-//                    'name' => 'required|string|max:191',
-//        ]);
-//
-//        /* fails() will return tru only if any of details which validator checks is no valid */
-//        if ($validator->fails()) {
-//            $errors = $validator->getMessageBag()->toArray();
-//            return view("backend.category.edit_category", ['errors' => $errors]);
-//        } else {
-//            $productUpdate = ProductRepository::update_product($request->all());
-//            if ($productUpdate) {
-//                return redirect('products');
-//            } else {
-//                return view("backend.product.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
-//            }
-//        }
-//    }
+    public function update_client(Request $request) {
+        /* Validator is used to validate all the details which are recived in the $request */
+        $validator = Validator::make($request->all(), [
+                    'name' => 'required|string|max:191',
+        ]);
+
+        /* fails() will return tru only if any of details which validator checks is no valid */
+        if ($validator->fails()) {
+            $errors = $validator->getMessageBag()->toArray();
+            return view("backend.category.edit_category", ['errors' => $errors]);
+        } else {
+            $clientUpdate = ClientRepository::update_client($request->all());
+            if ($clientUpdate) {
+                return redirect('/admin/clients');
+            } else {
+                return view("backend.client.edit_client", ['class' => "error", 'message' => "Error occured while updating clients, please try again."]);
+            }
+        }
+    }
 }

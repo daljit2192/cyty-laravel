@@ -39,7 +39,7 @@ class CategoryController extends Controller {
         } else {
             $categorySave = CategoryRepository::save_catgeory($request->all());
             if ($categorySave) {
-                return view("backend.category.add_category", ['class' => "success", 'message' => "Category saved successfully"]);
+                return redirect('/admin/categories');
             } else {
                 return view("backend.category.add_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
@@ -48,7 +48,10 @@ class CategoryController extends Controller {
 
     public function delete_category($id) {
         if($id!==""){
-            CategoryRepository::delete_category($id);
+            $deleteCategory = CategoryRepository::delete_category($id);
+            if($deleteCategory){
+                return redirect('/admin/categories');
+            }
         }
     }
 

@@ -13,25 +13,21 @@ use File;
 
 class ClientRepository extends BaseRepository
 {
-    public static function save_product($request){
-        $datetime = Carbon::now();
-        $name = explode(".", $request["images"]->getClientOriginalName());
-        $imageName = $name[0].$datetime->toDateTimeString();
-        $imageName = preg_replace('/[^a-zA-Z0-9]/', '', $imageName);
-        $request["images"]->move(public_path("user-images"),$imageName.".".$request["images"]->getClientOriginalExtension());
-        $product = new Product();
-        $product->fill($request);
-        $product->images = $imageName.".".$request["images"]->getClientOriginalExtension();
-        if($product->save()){
+    public static function save_client($request){
+        
+        $client = new User();
+        $client->fill($request);
+        $client->password = bcrypt($client->password);
+        if($client->save()){
             return true;
         } else {
             return false;
         }
     }
-    public static function update_product($request){
-        $product = Product::find($request["id"]);
-        $product->fill($request);
-        if($product->save()){
+    public static function update_client($request){
+        $client = User::find($request["id"]);
+        $client->fill($request);
+        if($client->save()){
             return true;
         } else {
             return false;
@@ -46,16 +42,16 @@ class ClientRepository extends BaseRepository
         }
     }
     
-    public static function get_category($id){
-        $category = Category::find($id);
-        if(count($category->toArray())>0 && isset($category) && !empty($category)){
-            return $category->toArray();
+    public static function get_client($id){
+        $cleint = User::find($id);
+        if(count($cleint->toArray())>0 && isset($cleint) && !empty($cleint)){
+            return $cleint->toArray();
         } else {
             return array();
         }
     }
     
-    public static function delete_category($id){
-        Category::where("id",$id)->delete();
+    public static function delete_cleint($id){
+        User::where("id",$id)->delete();
     }
 }

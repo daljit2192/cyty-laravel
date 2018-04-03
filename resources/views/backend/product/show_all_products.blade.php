@@ -29,7 +29,7 @@
                                 <tr class='cat_row_{{$product["id"]}}'>
                                     <td>{{$product["id"]}}</td>
                                     <td>{{$product["name"]}}</td>
-                                    <td><img width="40px;" height="40px;" src = '{{url("/")."/user-images/".$product["images"]}}'</td>
+                                    <td><img width="40px;" height="40px;" src = '{{url("/")."/user-images/product/".$product["images"]}}'</td>
                                     <td>{{$product["description"]}}</td>
                                     <td><a href="{{url('/admin/product/'.$product['id'])}}" style="color:blue;">Edit</a></td>
                                     <td><a data-toggle="modal" data-target="#deleteModal" data-id="{{$product['id']}}" style="color:red;" class="_delete_product">Delete</a></td>

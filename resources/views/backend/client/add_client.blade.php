@@ -7,7 +7,7 @@
     <?php }
     ?>
     <!-- BEGIN FORM-->
-    {{Form::open(array('route' => ['admin.client.save_client'],'method'=>'post','files'=>'true','class'=>'horizontal-form'))}}
+    {{Form::open(array('route' => ['admin.client.save_client'],'files'=>'true','method'=>'post','files'=>'true','class'=>'horizontal-form'))}}
     <h3 class="form-section">New Client</h3>
     <div class="row-fluid">
         <div class="span6 ">
@@ -49,7 +49,7 @@
                 
                 <div class="controls">
                     <label class="control-label">Password</label>
-                    <input type="password id="phonePass" name="password" class="m-wrap span12" placeholder="Password">
+                    <input type="password" id="phonePass" name="password" class="m-wrap span12" placeholder="Password">
                     <span class="_error_span" style="color:red;">
                         <?php
                         if (isset($errors) && count($errors) && !empty($errors)) {

@@ -22,12 +22,13 @@ class ProductController extends Controller {
         $products = ProductRepository::get_all_products();
         return view("backend.product.show_all_products", ['products' => $products]);
     }
-//
-//    public function get_product($id) {
-//        $product = ProductRepository::get_product($id);
-//        return view("backend.product.edit_product", ['product' => $product]);
-//    }
-//
+
+    public function get_product($id) {
+        $categories = Category::all();
+        $product = ProductRepository::get_product($id);
+        return view("backend.product.edit_product", ['product' => $product, "categories"=>$categories->toArray()]);
+    }
+
     public function save_product(Request $request) {
         /* Validator is used to validate all the details which are recived in the $request */
         $validator = Validator::make($request->all(), [
@@ -49,30 +50,30 @@ class ProductController extends Controller {
         }
     }
 
-//
-//    public function delete_product($id) {
-//        if($id!==""){
-//            ProductRepository::delete_product($id);
-//        }
-//    }
-//
-//    public function update_product(Request $request) {
-//        /* Validator is used to validate all the details which are recived in the $request */
-//        $validator = Validator::make($request->all(), [
-//                    'name' => 'required|string|max:191',
-//        ]);
-//
-//        /* fails() will return tru only if any of details which validator checks is no valid */
-//        if ($validator->fails()) {
-//            $errors = $validator->getMessageBag()->toArray();
-//            return view("backend.category.edit_category", ['errors' => $errors]);
-//        } else {
-//            $productUpdate = ProductRepository::update_product($request->all());
-//            if ($productUpdate) {
-//                return redirect('products');
-//            } else {
-//                return view("backend.product.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
-//            }
-//        }
-//    }
+
+    public function delete_product($id) {
+        if($id!==""){
+            ProductRepository::delete_product($id);
+        }
+    }
+
+    public function update_product(Request $request) {
+        /* Validator is used to validate all the details which are recived in the $request */
+        $validator = Validator::make($request->all(), [
+                    'name' => 'required|string|max:191',
+        ]);
+
+        /* fails() will return tru only if any of details which validator checks is no valid */
+        if ($validator->fails()) {
+            $errors = $validator->getMessageBag()->toArray();
+            return view("backend.category.edit_category", ['errors' => $errors]);
+        } else {
+            $productUpdate = ProductRepository::update_product($request->all());
+            if ($productUpdate) {
+                return redirect('products');
+            } else {
+                return view("backend.product.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
+            }
+        }
+    }
 }

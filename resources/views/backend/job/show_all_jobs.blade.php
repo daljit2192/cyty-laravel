@@ -6,11 +6,11 @@
         <div class="portlet box red">
             
             <div class="portlet-title">
-                <h4><i class="icon-cogs"></i>Categories</h4>
-                <a href="{{url('/admin/category/new')}}" class="btn btn-white btn-sm pull-right"><i class="fa fa-plus"></i>Add new</a>
+                <h4><i class="icon-cogs"></i>Jobs</h4>
+                <a href="{{url('/admin/job/new')}}" class="btn btn-white btn-sm pull-right"><i class="fa fa-plus"></i>Add new</a>
             </div>
             <div class="portlet-body">
-                <?php if (isset($categories) && count($categories) > 0 && !empty($categories)) { ?>
+                <?php if (isset($jobs) && count($jobs) > 0 && !empty($jobs)) { ?>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -23,16 +23,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($categories as $category) {
+                            <?php foreach ($jobs as $job) {
                                 $path = public_path() . "/user-images/";
                                 ?>
-                                <tr class='cat_row_{{$category["id"]}}'>
-                                    <td>{{$category["id"]}}</td>
-                                    <td>{{$category["name"]}}</td>
-                                    <td><img width="40px;" height="40px;" src = '{{url("/")."/user-images/category/".$category["image"]}}'></td>
-                                    <td>{{$category["description"]}}</td>
-                                    <td><a href="{{url('/admin/category/'.$category['id'])}}" class="btn btn-warning btn-sm" style=""><i class="fa fa-pencil"></i>Edit</a></td>
-                                    <td><a data-toggle="modal" data-target="#deleteModal" data-id="{{$category['id']}}"  class="btn btn-danger btn-sm _delete_cat"><i class="fa fa-trash"></i>Delete</a></td>
+                                <tr class='cat_row_{{$job["id"]}}'>
+                                    <td>{{$job["id"]}}</td>
+                                    <td>{{$job["name"]}}</td>
+                                    <td><img width="40px;" height="40px;" src = '{{url("/")."/user-images/job/".$job["image"]}}'></td>
+                                    <td>{{$job["enquiry"]}}</td>
+                                    <td><a href="{{url('/admin/job/'.$job['id'])}}" class="btn btn-warning btn-sm" style=""><i class="fa fa-pencil"></i>Edit</a></td>
+                                    <td><a data-toggle="modal" data-target="#deleteModal" data-id="{{$job['id']}}"  class="btn btn-danger btn-sm _delete_cat"><i class="fa fa-trash"></i>Delete</a></td>
                                 </tr>
     <?php } ?>
                         </tbody>

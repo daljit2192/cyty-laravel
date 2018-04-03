@@ -7,7 +7,7 @@
     <?php }
     ?>
     <!-- BEGIN FORM-->
-    {{Form::open(array('route' => ['admin.category.update_category'],'method'=>'patch','class'=>'horizontal-form'))}}
+    {{Form::open(array('route' => ['admin.category.update_category'],'method'=>'patch','files'=>'true','class'=>'horizontal-form'))}}
     <h3 class="form-section">Update Category</h3>
     <div class="row-fluid">
         <div class="span6 ">
@@ -34,13 +34,13 @@
                 <label class="control-label">Category Image</label>
                 <div class="fileupload fileupload-new" data-provides="fileupload">
                     <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                        <img src = '{{url("/")."/user-images/".$category["image"]}}' alt="">
+                        <img src = '{{url("/")."/user-images/category/".$category["image"]}}' alt="">
                     </div>
                     <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                     <div>
                         <span class="btn btn-file"><span class="fileupload-new">Select image</span>
                             <span class="fileupload-exists">Change</span>
-                            <input type="file" name="image" class="default"></span>
+                            <input type="file" name="image" class="default" value="$category['image']"></span>
                         <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                     </div>
                 </div>

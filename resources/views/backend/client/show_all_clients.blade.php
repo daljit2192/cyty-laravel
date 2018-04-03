@@ -2,7 +2,6 @@
 @section('content')
 <div class="row-fluid">
     <div class="span6 category-list" style="margin:45px 0 0 0;">
-
         <!-- BEGIN SAMPLE TABLE PORTLET-->
         <div class="portlet box red">
             <div class="portlet-title">
@@ -31,7 +30,7 @@
                                     <td>{{$client["name"]}}</td>
                                     <td>{{$client["email"]}}</td>
                                     <td>{{$client["phone_no"]}}</td>
-                                    <td><a href="{{url('/admin/product/'.$client['id'])}}" class="btn btn-warning btn-sm" ><i class="fa fa-pencil"></i>Edit</a><a data-toggle="modal" data-target="#deleteModal" data-id="{{$client['id']}}" class="btn btn-danger btn-sm pull-right _delete_product"><i class="fa fa-trash" ></i>Delete</a></td>
+                                    <td><a href="{{url('/admin/client/'.$client['id'])}}" class="btn btn-warning btn-sm" ><i class="fa fa-pencil"></i>Edit</a><a data-toggle="modal" data-target="#deleteModal" data-id="{{$client['id']}}" class="btn btn-danger btn-sm pull-right _delete_product"><i class="fa fa-trash" ></i>Delete</a></td>
                                 </tr>
     <?php } ?>
                         </tbody>
