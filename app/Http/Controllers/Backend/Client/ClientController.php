@@ -7,7 +7,7 @@ use App\Category;
 use App\Repositories\Backend\Client\ClientRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Auth;
 /**
  * Class ClientController.
  */

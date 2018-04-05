@@ -31,15 +31,9 @@
             </a>
         </li>
         <li class="has-sub ">
-            <a href="javascript:;">
+            <a href="{{url('/admin/serviceproviders')}}">
                 <i class="fa fa-tags"></i> 
                 <span class="title">Service Provider</span>
-            </a>
-        </li>
-        <li class="has-sub ">
-            <a href="javascript:;">
-                <i class="fa fa-money"></i> 
-                <span class="title">Payments</span>
             </a>
         </li>
         <li class="has-sub ">

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Backend\Job\JobRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Auth;
 /**
  * Class JobController.
  */

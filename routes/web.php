@@ -82,6 +82,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
         Route::get('{id}', 'JobController@get_job')->name('get_job');
         Route::get('/delete/{id}', 'JobController@delete_job')->name('delete_job');
     });
+    Route::group(['namespace' => 'ServiceProvider', 'as' => 'serviceprovider.', 'prefix' => 'serviceprovider/',], function () {
+        Route::get('new', 'ServiceProviderController@add_service_provider')->name('add_service_provider_view');
+        Route::post('new', 'ServiceProviderController@save_service_provider')->name('save_service_provider');
+        Route::patch('update', 'ServiceProviderController@update_service_provider')->name('update_service_provider');
+        Route::get('{id}', 'ServiceProviderController@get_service_provider')->name('get_service_provider');
+        Route::get('/delete/{id}', 'ServiceProviderController@delete_service_provider')->name('delete_service_provider');
+    });
 
     Route::group(['namespace' => 'Product', 'prefix' => 'products/', 'as' => 'products.'], function () {
         Route::get('', 'ProductController@get_all_products')->name('get_all_products');
@@ -97,6 +104,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     
     Route::group(['namespace' => 'Job', 'prefix' => 'jobs/', 'as' => 'jobs.'], function () {
         Route::get('', 'JobController@get_all_jobs')->name('get_all_jobs');
+    });
+
+    Route::group(['namespace' => 'ServiceProvider', 'prefix' => 'serviceproviders/', 'as' => 'serviceprovider.'], function () {
+        Route::get('', 'ServiceProviderController@get_all_service_providers')->name('get_all_service_provider');
     });
 
     Route::group(['namespace' => 'Auth'], function () {
