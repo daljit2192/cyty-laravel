@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\ServiceProvider;
 
+use App\JobCategory;
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\ServiceProvider\ServiceProviderRepository;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class ServiceProviderController extends Controller {
 
     public function add_service_provider() {
         if ($this->checkUser()) {
-            return view('backend.serviceprovider.add_service_provider');
+            $job_categories = JobCategory::all();
+            return view('backend.serviceprovider.add_service_provider',["job_categories"=>$job_categories]);
         } else {
             return redirect("/admin/login");
         }
@@ -68,7 +70,7 @@ class ServiceProviderController extends Controller {
             if ($serviceProviderSave) {
                 return redirect('/admin/serviceproviders');
             } else {
-                return view("backend.category.add_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
+                return view("backend.serviceprovider.add_service_provider", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
         }
     }
@@ -91,13 +93,13 @@ class ServiceProviderController extends Controller {
         /* fails() will return tru only if any of details which validator checks is no valid */
         if ($validator->fails()) {
             $errors = $validator->getMessageBag()->toArray();
-            return view("backend.category.edit_category", ['errors' => $errors]);
+            return view("backend.serviceprovider.edit_service_provider", ['errors' => $errors]);
         } else {
-            $categoryUpdate = CategoryRepository::update_catgeory($request->all());
-            if ($categoryUpdate) {
-                return redirect('/admin/categories');
+            $serviceProviderUpdate = ServiceProviderRepository::update_service_provider($request->all());
+            if ($serviceProviderUpdate) {
+                return redirect('/admin/serviceproviders');
             } else {
-                return view("backend.category.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
+                return view("backend.serviceprovider.edit_service_provider", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
         }
     }

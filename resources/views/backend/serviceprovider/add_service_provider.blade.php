@@ -33,10 +33,10 @@
                 <div class="controls">
                     <label class="control-label">Job Category</label>
                     <select name="service_provider[job_category]">
-                        <option value="1">Job category 1</option>
-                        <option value="2">Job category 2</option>
-                        <option value="3">Job category 3</option>
-                        <option value="4">Job category 4</option>
+                        
+                        @foreach($job_categories as $job_catgeory)
+                        <option value="{{$job_catgeory['id']}}">{{$job_catgeory["name"]}}</option>
+                        @endforeach
                     </select>
                 </div>
                 

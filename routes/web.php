@@ -61,10 +61,17 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
         Route::get('{id}', 'CategoryController@get_category')->name('get_category');
         Route::get('/delete/{id}', 'CategoryController@delete_category')->name('delete_category');
     });
+    Route::group(['namespace' => 'JobCategory', 'as' => 'jobcategory.', 'prefix' => 'jobcategory/',], function () {
+        Route::get('new', 'JobCategoryController@add_job_category')->name('add_job_category_view');
+        Route::post('new', 'JobCategoryController@save_job_category')->name('save_job_category');
+        Route::patch('update', 'JobCategoryController@update_job_category')->name('update_job_category');
+        Route::get('{id}', 'JobCategoryController@get_job_category')->name('get_job_category');
+        Route::get('/delete/{id}', 'JobCategoryController@delete_job_category')->name('delete_job_category');
+    });
     Route::group(['namespace' => 'Product', 'as' => 'product.', 'prefix' => 'product/',], function () {
         Route::get('new', 'ProductController@add_product')->name('add_product_view');
         Route::post('new', 'ProductController@save_product')->name('save_product');
-//        Route::patch('update', 'ProductController@update_product')->name('update_product');
+        Route::patch('update', 'ProductController@update_product')->name('update_product');
         Route::get('{id}', 'ProductController@get_product')->name('get_product');
         Route::get('/delete/{id}', 'ProductController@delete_product')->name('delete_product');
     });
@@ -96,6 +103,10 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.'], 
     
     Route::group(['namespace' => 'Category', 'prefix' => 'categories/', 'as' => 'categories.'], function () {
         Route::get('', 'CategoryController@get_all_categories')->name('get_all_categories');
+    });
+    
+    Route::group(['namespace' => 'JobCategory', 'prefix' => 'jobcategories/', 'as' => 'jobcategories.'], function () {
+        Route::get('', 'JobCategoryController@get_all_job_categories')->name('get_all_job_categories');
     });
     
     Route::group(['namespace' => 'Client', 'prefix' => 'clients/', 'as' => 'clients.'], function () {

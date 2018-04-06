@@ -37,6 +37,12 @@
             </a>
         </li>
         <li class="has-sub ">
+            <a href="{{url('/admin/jobcategories/')}}">
+                <i class="fa fa-th-large"></i> 
+                <span class="title">Job Category</span>
+            </a>
+        </li>
+        <li class="has-sub ">
             <a href="{{url('/admin/products/')}}">
                 <i class="fa fa-database"></i> 
                 <span class="title">Products</span>

@@ -90,7 +90,7 @@ class ProductController extends Controller {
         } else {
             $productUpdate = ProductRepository::update_product($request->all());
             if ($productUpdate) {
-                return redirect('products');
+                return redirect('/admin/products');
             } else {
                 return view("backend.product.edit_category", ['class' => "error", 'message' => "Error occured while saving categories, please try again."]);
             }
